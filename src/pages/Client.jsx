@@ -52,7 +52,7 @@ const Client = () => {
     }, [user])
     return (
         <div className="w-full flex relative items-center justify-start h-[100%] flex-col  ">
-            <div className="h-20  md:w-6/12 w-full   rounded-full   flex justify-center items-center   p-1 m-2  ">
+            <div className="h-20  md:w-6/12 w-full   rounded-full bg-violet-400 bg-opacity-25  flex justify-center items-center   p-1 m-2  ">
                 <SearchBar />
             </div>
             <div className="absolute  w-10 h-10 cursor-pointer flex bg-violet-700 animate-bounce  rounded-full shadow-xl justify-center items-center  top-5 end-5 ">

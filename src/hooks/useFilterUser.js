@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 
 const useFilterUser= ()=>{
     const clients = useSelector((state) => state?.clients?.clients)     
-    function filterProduct (searchKey){
+    function filterProduct (searchKey=''){
         const regex = new RegExp(searchKey,'i')
         const result = clients.filter((item)=>
         regex.test(item.firstName)||

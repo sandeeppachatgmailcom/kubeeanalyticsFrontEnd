@@ -1,8 +1,9 @@
+
 import { MdAttachEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { useEffect, useState } from "react";
-const Individual = ({ client }) => {
+const Suppplier = ({ client }) => {
 
     const [user, setUser] = useState(client)
     useEffect(() => {
@@ -52,4 +53,4 @@ const Individual = ({ client }) => {
     )
 }
 
-export default Individual
+export default Suppplier

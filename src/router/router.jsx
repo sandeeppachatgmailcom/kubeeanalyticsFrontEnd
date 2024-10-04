@@ -11,6 +11,8 @@ import Notification from "../pages/Notification";
 import Help from "../pages/Help";
 import Products from "../pages/products";
 import Client from "../pages/Client";
+import Billing from "../pages/Billing";
+import Purchase from "../pages/Purchase";
 
 
 
@@ -62,8 +64,15 @@ const appRouter = createBrowserRouter([{
                 {
                     path:'client',
                     element:<Client/>
-                } 
-                
+                },
+                {
+                    path:'billing',
+                    element:<Billing/> 
+                },
+                {
+                    path:'purchase',
+                    element:<Purchase/> 
+                }
             ]
         }, 
     ]

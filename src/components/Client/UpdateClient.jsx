@@ -42,14 +42,14 @@ const UpdateClient = ({ client, setClient }) => {
         }
     }
     return (
-        <div className="w-full hover:bg-indigo-50 h-[100%] justify-center relative  flex items-center text-white  overflow-hidden rounded-lg   border  border-violet-700 flex-col  ">
+        <div className="w-full hover:bg-violet-100 h-[100%] justify-center relative  flex items-center text-white  overflow-hidden rounded-lg   border  border-violet-700 flex-col  ">
 
             <div className="w-full flex-col h-[50%] bottom-2 end-2  flex justify-center relative gap-2 items-center rounded-t-sm">
                 <div className=" w-full  flex items-center justify-end gap-4 bottom-2 end-2  absolute h-10">
                     <MdOutlineSwipeDown className="cursor-pointer w-16 h-8 text-red-500     rounded-sm  " />
                     <FaBookmark onClick={() => saveClient()} className=" cursor-pointer w-16 h-8 text-gray-500    " />
                 </div>
-                <div className="w-24 h-24 justify-center flex items-center  border border-violet-700 p-1 bg-violet-700 rounded-full">
+                <div className="w-24 h-24 justify-center flex items-center  border border-violet-700 p-1 bg-violet-700 bg-opacity-25 rounded-full">
                     <h1 className="text-2xl font-bold">
                         {Object.keys(user).length && user?.firstname?.[0] && user?.lastName?.[0]
                             ? user?.firstname[0].toUpperCase() + user?.lastName[0].toUpperCase()

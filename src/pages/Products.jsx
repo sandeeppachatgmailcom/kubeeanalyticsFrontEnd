@@ -77,7 +77,7 @@ const Products = () => {
 
     return (
         <div className="  w-full h-[100%] justify-start   flex flex-col items-center  ">
-            <div className="h-20  xl:w-6/12 w-full   rounded-full   flex justify-center items-center   p-1 m-2  ">
+            <div className="h-20  xl:w-6/12 w-full   rounded-full bg-violet-400 bg-opacity-20  flex justify-center items-center   p-1 m-2  ">
                 <SearchBar />
             </div>
             <div className="gap-2  relative  w-full flex flex-wrap justify-start items-start px-2 py-1">

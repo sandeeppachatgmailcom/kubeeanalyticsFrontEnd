@@ -12,7 +12,9 @@ export const userApi= {
 export const productsApi = {
     saveProduct:'/product/updateProduct',
     readAllProducts: '/product/readAllProducts',
-     updateBatchPrice: '/product/updateBatchPrice'
+    updateBatchPrice: '/product/updateBatchPrice',
+    readlatestProduct:'/product/readlatestProduct',
+    addTokart:'/product/addTokart',
 }
 
 

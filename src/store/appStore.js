@@ -4,6 +4,7 @@ import userSlice from "./userSlice";
 import workSlice from "./workSlice";
 import productSlice from "./productSlice";
 import clientSlice from "./clientSlice";
+import billingSlice from "./billingSlice";
 
 const appStore = configureStore({
     reducer:{
@@ -11,7 +12,8 @@ const appStore = configureStore({
         user:userSlice,
         work:workSlice,
         product:productSlice,
-        clients:clientSlice
+        clients:clientSlice,
+        bill:billingSlice
 
     }
 })

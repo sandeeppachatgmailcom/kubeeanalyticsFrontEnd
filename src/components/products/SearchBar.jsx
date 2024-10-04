@@ -12,7 +12,7 @@ const SearchBar =()=>{
      dispatch(setsearchKey(searchKey))
     },[searchKey])
     return(
-        <div className="w-full rounded-full flex justify-center items-center overflow-hidden  h-[100%] p-2 bg-violet-700 bg-opacity-10">
+        <div className="w-full rounded-full flex justify-center items-center overflow-hidden  h-[100%] p-2 bg--700 bg-opacity-10">
             
             <input onChange={(e)=>setSearchKey(e.target.value)} className="h-[100%]  uppercase bg-transparent text-2xl text-gray-500 w-full focus:outline-none p-3" type="text" name="" id="" />
             <IoSearch className="w-5  h-5 text-gray-600 me-4 cursor-pointer " />
