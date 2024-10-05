@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import useRouter from "../hooks/useRouter";
 import axiosApi from "../api/axiosApi";
 import { userApi } from "../api/apiPaths";
@@ -15,12 +14,15 @@ const Login = () => {
     const dispatch = useDispatch()
     const [error,setError] = useState('') 
     const user = useSelector((state)=>state.user.user)
+    
+
+
     const handlesignup = ()=>{
         navigate('signup')
     } 
     useEffect(()=>{
         console.log(Object.keys(user).length ,'Object.keys(user).length ')
-        
+        Object.keys(user).length ? navigate('homePage') :''
     },[user])
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -28,7 +30,7 @@ const Login = () => {
         console.log(result,'result')
         if(result.data.result){
             dispatch(login(result.data))
-            navigate('homePage') 
+            
         }
         else{
             setError(result.data.message)

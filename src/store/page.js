@@ -8,7 +8,8 @@ const pageSlice = createSlice({
     },
     reducers:{
         changePage:(state,actions)=>{
-            state.pageName = actions.payload
+             
+            state.pageName = actions.payload.length  ? actions.payload:'login'
         }
     }
 })

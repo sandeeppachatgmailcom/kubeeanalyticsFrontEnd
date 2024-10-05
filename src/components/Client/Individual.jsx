@@ -24,14 +24,14 @@ const Individual = ({ client }) => {
                 <div className="w-24 h-24 justify-center flex items-center  border border-violet-600 p-1 bg-violet-600 bg-opacity-75 rounded-full">
                     <h1 className="text-2xl font-bold">
                         {Object.keys(user).length && user?.firstname?.[0] && user?.lastName?.[0]
-                            ? user?.firstname[0].toUpperCase() + user?.lastName[0].toUpperCase()
+                            ? user?.firstname[0]?.toUpperCase() + user?.lastName[0]?.toUpperCase()
                             : ''}
                     </h1>
 
                 </div>
                 <div className="w-full flex text-violet-600  gap-4  justify-center items-center ">
 
-                    <h1 className="text-sm font-semibold ">{user?.firstname.toUpperCase() + ' ' + user?.lastName.toUpperCase()}</h1>
+                    <h1 className="text-sm font-semibold ">{user?.firstname?.toUpperCase() + ' ' + user?.lastName?.toUpperCase()}</h1>
                 </div>
 
             </div>

@@ -12,7 +12,7 @@ import { setsearchKey } from "../../store/productSlice";
 const SelectProduct = ({ product, closeCompnent }) => {
     const [item, setItem] = useState(product)
     const dispatch = useDispatch()
-    const searchKey = useSelector((state) => state.product.searchKey)
+    const bill = useSelector((state) => state.bill)
     const latestPriceQty = useLatestProduct()
     const [billedQty, setBilledQty] = useState(0)
     const addTokart = useAddToKart()
@@ -22,18 +22,17 @@ const SelectProduct = ({ product, closeCompnent }) => {
             closeCompnent()
         }, 5000)
 
-        return
-        clearTimeout(timOut)
+        return()=>  clearTimeout(timOut)
 
     }, [])
     const getPriceDetails = async () => {
         const result = await latestPriceQty(product)
-        console.log(result.data, '32416434646674646')
+        
         const temp = {
             ...result,
             quantity: result?.batch?.reduce((totalQty, item) => totalQty + (item?.quantity || 0), 0) || 0
         };
-        console.log(temp, 'this is temporary')
+         
         setItem(temp)
     }
 
@@ -41,7 +40,7 @@ const SelectProduct = ({ product, closeCompnent }) => {
         let tempQty = billedQty;
 
         const billedItems = item?.batch?.map((batch) => {
-            if (tempQty > 0) {
+            if (tempQty > 0 && batch.quantity) {
                 const qtyToBill = tempQty > batch.quantity ? batch.quantity : tempQty;
                 tempQty -= qtyToBill;
                 return {
@@ -49,16 +48,17 @@ const SelectProduct = ({ product, closeCompnent }) => {
                     itemName: item?.itemName,
                     easyCode: item?.easyCode,
                     batchCode: batch?.batchCode,
-                    decreasedQty: qtyToBill,
-                    sellingPrice: batch?.sellingPrice
+                    quantity: qtyToBill*(bill.type == 'SALES' ?-1:1),
+                    Price: batch?.sellingPrice,
+                    type: bill.type
                 };
             } else {
                 return null;
             }
         }).filter(item => item !== null);
-        console.log(billedItems, 'billedItems - showing decreased quantities from each batch');
+         
         const update =await  addTokart(billedItems) 
-
+         
         if(update.status) {
             dispatch(addProductstoBill(billedItems))
             dispatch(setsearchKey(''))
@@ -66,13 +66,11 @@ const SelectProduct = ({ product, closeCompnent }) => {
              
     };
     useEffect(() => {
-        //setItem(product)
+         
         getPriceDetails()
     }, [product])
 
-    useEffect(() => {
-        console.log(item, 'latest Item')
-    }, [item])
+  
 
     return (
         <div className="w-full h-[100%]  rounded-xl border-2 overflow-hidden  bg-violet-400  ">

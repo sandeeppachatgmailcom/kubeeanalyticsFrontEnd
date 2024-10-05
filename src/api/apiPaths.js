@@ -15,6 +15,8 @@ export const productsApi = {
     updateBatchPrice: '/product/updateBatchPrice',
     readlatestProduct:'/product/readlatestProduct',
     addTokart:'/product/addTokart',
+    removeFromkart:'/product/removeFromkart',
+    saveTransaction:'/product/saveTransaction',
 }
 
 

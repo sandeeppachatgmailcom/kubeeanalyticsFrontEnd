@@ -6,9 +6,10 @@ const useRouter = ()=>{
     
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    return function (pathName){
-        dispatch(changePage(pathName))
-        navigate('/'+pathName)
+    return  function  (pathName ){
+         console.log(pathName)
+          dispatch(changePage(pathName))
+          navigate('/'+pathName)
     }
 
 }

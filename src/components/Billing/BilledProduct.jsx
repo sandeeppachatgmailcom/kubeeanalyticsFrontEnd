@@ -29,10 +29,10 @@ const BilledProduct = ({product})=>{
                 </div>
             </div>
             <div className="w-10/12   flex justify-start   items-center   bg-white text-violet-700 bg-opacity-8 ">
-                 <h1 className="text-sm   w-4/12  ">  {item?.batchCode?.toUpperCase() || 0.00} || {item?.itemName}</h1>
-                 <h1 className="text-sm w-1/12 text-right text">  {item?.sellingPrice || 0.00}/-</h1>
-                 <h1 className="text-sm text text-right w-1/12 "> {item?.decreasedQty || 0.00}</h1>
-                 <h1 className="text-sm text text-right w-1/12 "> {(item?.decreasedQty || 0.00) *(item?.sellingPrice || 0.00) }</h1>
+                 <h1 className="text-sm     text-start w-4/12  ">  {item?.batchCode?.toUpperCase() || 0.00} || {item?.itemName}</h1>
+                 <h1 className="text-sm     text-right w-2/12">  {item?.Price || 0.00}/-</h1>
+                 <h1 className="text-sm     text-right w-2/12 "> {Math.abs( item?.quantity) || 0.00}</h1>
+                 <h1 className="text-sm     text-right w-2/12 "> {(Math.abs( item?.quantity) || 0.00) *(item?.Price || 0.00) }</h1>
             </div>
         </div>
     )

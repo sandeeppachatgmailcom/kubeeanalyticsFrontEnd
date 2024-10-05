@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"; 
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Login from "../pages/Login";
 import Signup from "../pages/SignUp";
@@ -11,73 +11,78 @@ import Notification from "../pages/Notification";
 import Help from "../pages/Help";
 import Products from "../pages/products";
 import Client from "../pages/Client";
-import Billing from "../pages/Billing";
+import { Suspense, lazy } from "react";
+const Billing = lazy(() => import("../pages/Billing"))
 import Purchase from "../pages/Purchase";
 
 
 
+
+
 const appRouter = createBrowserRouter([{
-    path:'/',
-    element:<App/>,
-    children:[
+    path: '/',
+    element: <App />,
+    children: [
         {
-            path:'/',
-            element:<Login/>
+            path: '/',
+            element: <Login />
         },
         {
-            path:'/signup',
-            element:<Signup/>
+            path: '/signup',
+            element: <Signup />
         },
         {
-            path:'/homePage',
-            element:<HomePage/>,
-            children:[
+            path: '/homePage',
+            element: <HomePage />,
+            children: [
                 {
-                    path:'',
-                    element:<></> 
-                    
+                    path: '',
+                    element: <></>
+
                 },
                 {
-                    path:'DashBoard',
-                    element:<DashBoard/>
+                    path: 'DashBoard',
+                    element: <DashBoard />
                 },
                 {
-                    path:'Profile',
-                    element:<Profile/>
+                    path: 'Profile',
+                    element: <Profile />
                 },
                 {
-                    path:'Mytask',
-                    element:<MyTask/>
+                    path: 'Mytask',
+                    element: <MyTask />
                 },
                 {
-                    path:'Notifications',
-                    element:<Notification/>
+                    path: 'Notifications',
+                    element: <Notification />
                 },
                 {
-                    path:'Help',
-                    element:<Help/>
+                    path: 'Help',
+                    element: <Help />
                 },
                 {
-                    path:'products',
-                    element:<Products/>
-                } ,
-                {
-                    path:'client',
-                    element:<Client/>
+                    path: 'products',
+                    element: <Products />
                 },
                 {
-                    path:'billing',
-                    element:<Billing/> 
+                    path: 'client',
+                    element: <Client />
                 },
                 {
-                    path:'purchase',
-                    element:<Purchase/> 
+                    path: 'inventory',
+                    element: (<Suspense fallback={<div>Loading...</div>} >
+                        <Billing />
+                    </Suspense>)
+                },
+                {
+                    path: 'purchase',
+                    element: <Purchase />
                 }
             ]
-        }, 
+        },
     ]
-    
-}]) 
+
+}])
 
 
 export default appRouter

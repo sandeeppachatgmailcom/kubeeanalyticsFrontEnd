@@ -5,6 +5,7 @@ import useGetAllProducts from "../../hooks/useGetAllProducts"
 import Product from "../products/Product.Jsx"
 import { RiUnpinFill } from "react-icons/ri"
 import SelectProduct from "./SelectProduct"
+import { setsearchKey } from "../../store/productSlice"
 
 
 const ProductSearchList = () => {
@@ -15,9 +16,18 @@ const ProductSearchList = () => {
     const updateProductList = useGetAllProducts()
     const [items, setItems] = useState([])
     const [addedItem,setAddedItem] = useState({})
+    
+    useEffect(()=>{
+        const closeWindow = setTimeout(()=>{
+            dispatch(setsearchKey(''))
+        },10000)
+        return ()=> clearTimeout(closeWindow )
+    },[])
+
 
     useEffect(() => {
         updateProductList()
+        
     }, [])
     const filter = () => {
         const list = filterProduct(searchKey)
@@ -31,7 +41,7 @@ const ProductSearchList = () => {
         console.log(items, 'itemitemitem')
     }, [items])
 
-    return (<div className=" w-full flex flex-wrap h-[100%]   absolute start-2 top-1 " >
+    return (<div className=" w-full flex flex-wrap h-[100%]    absolute start-2 top-1 " >
         <div className="w-full flex flex-wrap h-auto  gap-2">
             {
                 searchKey.length && items.length ? items.map((item) =>

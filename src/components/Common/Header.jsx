@@ -4,12 +4,17 @@ import { FaPowerOff } from "react-icons/fa6";
 import { AiOutlineLogin } from "react-icons/ai";
 import { logout } from "../../store/userSlice";
 import useRouter from "../../hooks/useRouter";
+import { useEffect } from "react";
 
 const Header = ()=>{
     const user = useSelector((state)=>state.user.user)
     const dispatch = useDispatch()
     const navigate = useRouter()
-    let Dpname = user?.firstname.split(' ')?.map((item)=>item[0])?.join('').toUpperCase() 
+    // useEffect(()=>{
+    //     !Object.keys(user).keys.length ? navigate(''):''
+    // },[])
+
+    let Dpname = Object.keys(user).length? user?.firstname?.split(' ')?.map((item)=>item[0])?.join('').toUpperCase():''
     const handleLogout = ()=>{
         navigate('')
         dispatch(logout())
